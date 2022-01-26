@@ -8,7 +8,7 @@ public class Transformation {
         hm.put(2, new Person("Jane Doe","YNY", "N Kingsville, OH"));
         hm.put(3, new Person("Sally Jones",25,"Paris", "YYY"));
 
-        // Covery HashMap object to entrySet
+        // Convert HashMap object to entrySet
         var entrySet = hm.entrySet();
         for(var entry: entrySet){
             String gender;
