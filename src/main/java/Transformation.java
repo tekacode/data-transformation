@@ -8,6 +8,10 @@ public class Transformation {
         hm.put(2, new Person("Jane Doe","YNY", "N Kingsville, OH"));
         hm.put(3, new Person("Sally Jones",25,"Paris", "YYY"));
 
+        printInfo(hm);
+
+    }
+    public static void printInfo(HashMap<Integer, Person> hm){
         // Convert HashMap object to entrySet
         var entrySet = hm.entrySet();
         for(var entry: entrySet){
@@ -15,7 +19,7 @@ public class Transformation {
             String student;
             String employee;
 
-            String[] addressArray = entry.getValue().city.split(" ");
+            String[] addressArray = entry.getValue().getCity().split(" ");
             String city = addressArray[0];
             if(city.length() == 1){
                 city = addressArray[0]+ " " + addressArray[1];
@@ -24,16 +28,16 @@ public class Transformation {
             if(state == "Paris"){
                 state = "N/A";
             }
-            String flags = entry.getValue().flags;
+            String flags = entry.getValue().getFlags();
             gender = flags.charAt(0) == 'Y'? "Female": "Male";
             student = flags.charAt(1) == 'Y'? "Yes": "No";
             employee = flags.charAt(2) == 'Y'? "Yes": "No";
 
 
-            if(entry.getValue().age !=0){
-                System.out.println(entry.getValue().name + " ["+ entry.getValue().age+", "+gender+ "]");
+            if(entry.getValue().getAge() !=0){
+                System.out.println(entry.getValue().getName() + " ["+ entry.getValue().getName()+", "+gender+ "]");
             }else{
-                System.out.println(entry.getValue().name+ " ["+gender+ "]");
+                System.out.println(entry.getValue().getName()+ " ["+gender+ "]");
             }
             System.out.println("\t\t\tCity : "+city);
             System.out.println("\t\t\tState : "+ state);
@@ -41,5 +45,6 @@ public class Transformation {
             System.out.println("\t\t\tEmployee : "+ employee);
             System.out.println();
         }
+
     }
 }
